@@ -77,6 +77,9 @@
 # [*source*]
 #   File source for jenkins slave jar. Default pulls from http://maven.jenkins-ci.org
 #
+# [*java_bin*]
+#   Java binary. Default: /usr/bin/java
+#
 # [*java_args*]
 #   Java arguments to add to slave command line. Allows configuration of heap, etc. This
 #   can be a String, or an Array.
@@ -131,6 +134,7 @@ class jenkins::slave (
   Boolean $manage_client_jar              = true,
   Enum['running', 'stopped'] $ensure      = 'running',
   Boolean $enable                         = true,
+  String $java_bin                        = '/usr/bin/java',
   Any $java_args                          = undef,
   Any $swarm_client_args                  = undef,
   Boolean $delete_existing_clients        = false,
